@@ -165,11 +165,62 @@ ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 11. A partir del modelo de datos propuesto, se general el diagrama entidad-relación (*ERD*),
 
-![Diagrama *ERD*]()
+![Diagrama *ERD*](https://github.com/nandroidj/data-architecture-tracking-rdb/blob/main/docs/data-architecture-tracking-rdb.png)
+
+12. Posteriormente, se procede a poblar las tablas propuestas,
 
 
+* Tabla `tracking_device`
+
+```
+DO $FN$
+BEGIN
+  FOR counter IN 1..10 LOOP
+    RAISE NOTICE 'Counter: %', counter;
+
+    EXECUTE $$ 
+		INSERT INTO 
+			public.tracking_device
+		VALUES (gen_random_uuid()) 
+		RETURNING id $$ 
+      USING counter;
+  END LOOP;
+END;
+$FN$
+```
 
 
+* Tabla `users`
+
+```
+INSERT INTO
+	public.user
+VALUES
+	(gen_random_uuid(), 12345678, 'Santos', 'Mario', 'Cucha Cucha 1234'),
+	(gen_random_uuid(), 22345678, 'Medina', 'Gabriel', 'El Cairo 1234'),
+	(gen_random_uuid(), 32345678, 'Lamponne', 'Pablo', 'Agacha Al 800'),
+	(gen_random_uuid(), 42345678, 'Ravenna', 'Emilio', 'La dieta milagrosa 3200'),
+	(gen_random_uuid(), 52345678, 'Szifron', 'Damian', 'Ramos me guia 438');
+```
+
+
+* Tabla `measurement`
+
+```
+DO $FN$
+BEGIN
+  FOR counter IN 1..100 LOOP
+    RAISE NOTICE 'Counter: %', counter;
+
+    EXECUTE $$ 
+		INSERT INTO public.measurement
+		VALUES (gen_random_uuid(), now(), random() * 100, random() * 100) 
+		RETURNING id $$ 
+      USING counter;
+  END LOOP;
+END;
+$FN$
+```
 
 
 

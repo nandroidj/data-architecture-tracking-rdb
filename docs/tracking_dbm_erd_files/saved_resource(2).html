@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)http://localhost/datagrid/panel/5120052?is_query_tool=true&sgid=1&sid=1&server_type=pg&did=13445 -->
+<html class="no-js" lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>postgres/root@data-architecture-tracking-rdb</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- To set pgAdmin4 shortcut icon in browser -->
+    <link rel="shortcut icon" href="http://localhost/favicon.ico?ver=60800">
+
+    <!-- Base template stylesheets -->
+    <link type="text/css" rel="stylesheet" href="./style.css">
+    <link type="text/css" rel="stylesheet" href="./pgadmin.style.css">
+        <link type="text/css" rel="stylesheet" href="./pgadmin.css" data-theme="standard">
+
+     <!--View specified stylesheets-->
+    <link type="text/css" rel="stylesheet" href="./browser.css">
+
+    <script type="application/javascript">
+        /* This is used to change publicPath of webpack at runtime */
+        window.resourceBasePath = "/static/js/generated/";
+    </script>
+    <!-- Base template scripts -->
+    <script type="application/javascript" src="./require.min.js"></script>
+    <script type="application/javascript">
+            require.config({
+                baseUrl: '',
+                urlArgs: 'ver=60800',
+                waitSeconds: 0,
+                shim: {},
+                paths: {
+                    sources: "/static/js",
+                    datagrid: "/static/js/generated/datagrid",
+                    sqleditor: "/static/js/generated/sqleditor",
+                    'pgadmin.browser.utils': "/browser/" + "js/utils",
+                    'pgadmin.browser.endpoints': "/browser/" + "js/endpoints",
+                    'pgadmin.browser.messages': "/browser/" + "js/messages",
+                    'pgadmin.browser.constants': "/browser/" + "js/constants",
+                    'pgadmin.server.supported_servers': "/browser/" + "server/supported_servers",
+                    'pgadmin.user_management.current_user': "/user_management/" + "current_user",
+                    'translations': "/tools/" + "translations"
+                }
+            });
+
+    </script>
+    <!-- View specified scripts -->
+    <script type="application/javascript" src="./vendor.main.js"></script>
+    <script type="application/javascript" src="./vendor.others.js"></script>
+    <script type="application/javascript" src="./pgadmin_commons.js"></script>
+
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="sources/generated/browser_nodes" src="./browser_nodes.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="sources/generated/codemirror" src="./codemirror.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="sources/generated/slickgrid" src="./slickgrid.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="sources/generated/sqleditor" src="./sqleditor.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pgadmin.browser.constants" src="./constants.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pgadmin.browser.endpoints" src="./endpoints.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pgadmin.browser.messages" src="./messages.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pgadmin.browser.utils" src="./utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pgadmin.server.supported_servers" src="./supported_servers.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pgadmin.user_management.current_user" src="./current_user.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="translations" src="./translations.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="sources/gettext" src="./gettext.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="sources/pgadmin" src="./pgadmin.js"></script><link id="wcTheme" rel="stylesheet" type="text/css" href="./webcabin.overrides(2).css"></head>
+<body tabindex="0" class="wcDesktop">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<style>
+    body {padding: 0px;}
+    </style>
+<link type="text/css" rel="stylesheet" href="./browser.css">
+<div id="main-editor_panel">
+    <div class="sql-editor">
+        <div id="btn-toolbar" class="editor-toolbar" role="toolbar" aria-label="">
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-show-query-tool" type="button" class="btn btn-sm btn-primary-icon btn-show-query-tool" title="Query tool (Alt+Shift+Q)" aria-label="Query tool (Alt+Shift+Q)" tabindex="0">
+                    <i class="pg-font-icon icon-query_tool" aria-hidden="true" role="img"></i>
+                </button>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-load-file" type="button" class="btn btn-sm btn-primary-icon btn-load-file" title="Open File (accesskey + O)" accesskey="O" tabindex="0" aria-label="Open File (accesskey + O)">
+                    <i class="fa fa-folder-open sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <button id="btn-save-file" type="button" class="btn btn-sm btn-primary-icon" title="Save File (accesskey + S)" accesskey="S" aria-label="Save File (accesskey + S)">
+                    <i class="fa fa-save sql-icon-lg" aria-hidden="true" tabindex="0" role="img"></i>
+                </button>
+                <button id="btn-file-menu-dropdown" type="button" class="btn btn-sm btn-primary-icon dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-label="file menu">
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" id="btn-file-menu-save" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0" style="display: block;">
+                            <span>Save</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-file-menu-save-as" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span>Save As</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-save-data" type="button" class="btn btn-sm btn-primary-icon" title="Save Data Changes (F6)" accesskey="" tabindex="0" disabled="" aria-label="Save Data Changes (F6)">
+                    <i class="pg-font-icon icon-save_data_changes sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-find" type="button" class="btn btn-sm btn-primary-icon" aria-label="Find" title="Find (Ctrl/Cmd+F)">
+                    <i class="fa fa-search sql-icon-lg" aria-hidden="true" tabindex="0" role="img"></i>
+                </button>
+                <button id="btn-find-menu-dropdown" type="button" class="btn btn-sm btn-primary-icon dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Find (accesskey + N)" accesskey="N" tabindex="0" aria-label="Find (accesskey + N)">
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" id="btn-find-menu-find" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Find (Cmd+F)
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-find-menu-find-next" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Find Next (Cmd+G)
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-find-menu-find-previous" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Find Previous (Cmd+Shift+G)
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-find-menu-find-persistent" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span>Persistent Find</span>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item" id="btn-find-menu-replace" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Replace (Cmd+Option+F)
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-find-menu-replace-all" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span>Replace All</span>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item" id="btn-find-menu-jump" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span>Jump (Alt+G)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-copy-row" type="button" class="btn btn-sm btn-primary-icon" title="Copy (accesskey + C)" accesskey="C" tabindex="0" disabled="" aria-label="Copy (accesskey + C)">
+                    <i class="fa fa-copy sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <button id="btn-copy-row-dropdown" type="button" class="btn btn-sm btn-primary-icon dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-label="copy row">
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" id="btn-copy-with-header" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <i class="copy-with-header fa fa-check visibility-hidden" aria-hidden="true" role="img"></i>
+                            <span> Copy with headers </span>
+                        </a>
+                    </li>
+                </ul>
+                <button id="btn-paste-row" type="button" class="btn btn-sm btn-primary-icon" title="Paste (accesskey + P)" accesskey="P" tabindex="0" disabled="" aria-label="Paste (accesskey + P)">
+                    <i class="fa fa-paste sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-delete-row" type="button" class="btn btn-sm btn-primary-icon" title="Delete (accesskey + D)" accesskey="D" tabindex="0" disabled="" aria-label="Delete (accesskey + D)">
+                    <i class="fa fa-trash-alt sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-edit-dropdown" type="button" class="btn btn-sm btn-primary-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Edit" title="Edit" tabindex="0">
+                    <i class="fa fa-edit sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" id="btn-indent-code" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Indent Selection (Tab) </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-unindent-code" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Unindent Selection (Shift+Tab) </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-comment-line" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Inline Comment Selection (Cmd+/)
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-uncomment-line" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Inline Uncomment Selection (Cmd+.)
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-toggle-comment-block" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Block Comment/Uncomment Selection (Shift+Cmd+/)
+                            </span>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item" id="btn-format-sql" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span>Format SQL (Shift+Cmd+K)
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-filter" type="button" class="btn btn-secondary" title="Filter (accesskey + F)" accesskey="F" tabindex="0" disabled="" aria-label="Filter (accesskey + F)">
+                    <i class="fa fa-filter sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <button id="btn-filter-dropdown" type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Filter options (accesskey + I)" accesskey="I" disabled="" tabindex="0" aria-label="Filter options (accesskey + I)">
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a id="btn-filter-menu" class="dropdown-item" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">Sort/Filter</a>
+                    </li>
+                    <li>
+                        <a id="btn-include-filter" class="dropdown-item" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">Filter by Selection</a>
+                    </li>
+                    <li>
+                        <a id="btn-exclude-filter" class="dropdown-item" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">Exclude by Selection</a>
+                    </li>
+                    <li>
+                        <a id="btn-remove-filter" class="dropdown-item" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">Remove Sort/Filter</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <select id="btn-rows-limit" class="limit form-control form-control-sm" disabled="" title="Rows limit (accesskey + R)" accesskey="R" tabindex="0" aria-label="Rows limit (accesskey + R)">
+                    <option value="-1">No limit</option>
+                    <option value="1000">1000 rows</option>
+                    <option value="500">500 rows</option>
+                    <option value="100">100 rows</option>
+                </select>
+            </div>
+
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-cancel-query" type="button" class="btn btn-sm btn-primary-icon" title="Cancel query (accesskey + Q)" accesskey="Q" tabindex="0" aria-label="Cancel query (accesskey + Q)" disabled="">
+                    <i class="fa fa-stop sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <button id="btn-flash" data-test-selector="execute-refresh-button" type="button" class="btn btn-sm btn-primary-icon" style="width: 32px;" title="Execute/Refresh (F5)" tabindex="0" data-click-counter="9" aria-label="Execute/Refresh (F5)">
+                    <i class="fa fa-play sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <button id="btn-query-dropdown" type="button" class="btn btn-sm btn-primary-icon dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" accesskey="X" title="Execute options (accesskey + X)" tabindex="0" aria-label="Execute options (accesskey + X)">
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" id="btn-auto-commit" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <i class="auto-commit fa fa-check" aria-hidden="true" role="img"></i>
+                            <span> Auto commit? </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-auto-rollback" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <i class="auto-rollback fa fa-check visibility-hidden" aria-hidden="true" role="img"></i>
+                            <span> Auto rollback on error? </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-explain" type="button" class="btn btn-sm btn-primary-icon" title="Explain (F7)" accesskey="" tabindex="0" aria-label="Explain (F7)">
+                    <i class="fa fa-hand-pointer sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <button id="btn-explain-analyze" type="button" class="btn btn-sm btn-primary-icon" title="Explain Analyze (Shift+F7)" accesskey="" aria-label="Explain Analyze (Shift+F7)">
+                    <i class="fa fa-list-alt sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <button id="btn-explain-options-dropdown" type="button" class="btn btn-sm btn-primary-icon dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-label="explain">
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" id="btn-explain-verbose" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <i class="explain-verbose fa fa-check visibility-hidden" aria-hidden="true" role="img"></i>
+                            <span> Verbose </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-explain-costs" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <i class="explain-costs fa fa-check visibility-hidden" aria-hidden="true" role="img"></i>
+                            <span> Costs </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-explain-buffers" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <i class="explain-buffers fa fa-check visibility-hidden" aria-hidden="true" role="img"></i>
+                            <span> Buffers </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-explain-timing" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <i class="explain-timing fa fa-check visibility-hidden" aria-hidden="true" role="img"></i>
+                            <span> Timing </span>
+                        </a>
+                    </li>
+                    <li data-min-ver="100000">
+                        <a class="dropdown-item" id="btn-explain-summary" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <i class="explain-summary fa fa-check visibility-hidden" aria-hidden="true" role="img"></i>
+                            <span> Summary </span>
+                        </a>
+                    </li>
+                    <li data-min-ver="120000">
+                        <a class="dropdown-item" id="btn-explain-settings" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <i class="explain-settings fa fa-check visibility-hidden" aria-hidden="true" role="img"></i>
+                            <span> Settings </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-commit" type="button" class="btn btn-sm btn-primary-icon" title="Commit (Shift+Ctrl+M)" accesskey="" tabindex="0" disabled="" aria-label="Commit (Shift+Ctrl+M)">
+                    <i class="pg-font-icon icon-commit sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <button id="btn-rollback" type="button" class="btn btn-sm btn-primary-icon" title="Rollback (Shift+Ctrl+R)" tabindex="0" disabled="" aria-label="Rollback (Shift+Ctrl+R)">
+                    <i class="pg-font-icon icon-rollback sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+            </div>
+            <div class="btn-group mr-1" role="group" aria-label="">
+                <button id="btn-clear-dropdown" type="button" class="btn btn-sm btn-primary-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Clear (accesskey + L)" accesskey="L" tabindex="0" aria-label="Clear (accesskey + L)">
+                    <i class="fa fa-eraser sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" id="btn-clear" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Clear Query Window </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="btn-clear-history" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Clear History </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group" role="group" aria-label="">
+                <button id="btn-save-results-to-file" type="button" class="btn btn-sm btn-primary-icon" title="Save results to file (F8)" tabindex="0" disabled="" aria-label="Save results to file (F8)">
+                    <i class="fa fa-download sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+            </div>
+            <div class="btn-group mr-1 user_macros" role="group" aria-label="">
+                <button id="btn-macro-dropdown" type="button" class="btn btn-sm btn-primary-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Macros" title="Macros" tabindex="0">
+                    <i class="fa fa-scroll sql-icon-lg" aria-hidden="true" role="img"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" id="btn-manage-macros" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">
+                            <span> Manage Macros... </span>
+                        </a>
+                    </li>
+                                                        </ul>
+            </div>
+        </div>
+
+        <div class="connection_status_wrapper d-flex">
+            <div id="btn-conn-status" role="status" class="connection_status d-flex justify-content-center align-items-center" data-container="body" data-toggle="popover" data-placement="bottom" data-content="The session is idle and there is no current transaction." data-panel-visible="visible" accesskey="T" tabindex="0" data-original-title="" title="">
+                <i class="pg-font-icon icon-connected" aria-hidden="true" title="Connection status (click for details) (accesskey + T)" role="img">
+                </i>
+            </div>
+            <div class="connection-info btn-group mr-1" role="group" aria-label="" style="background-color: ; color: ;">
+                <div class="connection-data" data-toggle="dropdown" style="pointer-events: auto; cursor: pointer;">
+                    <div class="editor-title" aria-haspopup="true" aria-expanded="false" style="background-color: ; color: ;"> postgres/root@data-architecture-tracking-rdb</div>
+                    <span class="conn-info-dd dropdown-toggle dropdown-toggle-split" aria-haspopup="true" aria-expanded="false"></span>
+                </div>
+                <ul class="dropdown-menu" id="connections-list"><li class="connection-list-item selected-connection" data-index="0"><a class="dropdown-item" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0"> postgres/root@data-architecture-tracking-rdb</a></li><li class="connection-list-item" data-index="1"><a class="dropdown-item" href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="0">&lt;New Connection&gt;</a></li></ul>
+            </div>
+
+
+        </div>
+        <div id="editor-panel" tabindex="0">
+            <div id="main_loader" class="pg-sp-container sql-editor-busy-fetching d-none">
+                <div class="pg-sp-content">
+                    <div class="row">
+                        <div class="col-12 pg-sp-icon sql-editor-busy-icon"></div>
+                    </div>
+                    <div class="row"><div class="col-12 pg-sp-text sql-editor-busy-text">Loading...</div></div>
+                </div>
+            </div>
+        <div class="wcDocker"><div class="wcDockerTransition"></div><div class="wcLayoutPane" style="height: 617.931px; top: 0px; left: 0px; right: 0px;"><div class="wcFrame wcWide wcTall"><div class="wcFrameTitleBar wcTabTop" style="width: 1138.5px;"><div class="wcTabScroller" style="left: 0px;"><div class="wcPanelTab wcPanelTabActive" id="0"><div><a href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="-1" class="panel-link-heading">Query Editor</a></div></div><div class="wcPanelTab" id="1"><div><a href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="-1" class="panel-link-heading">Query History</a></div></div></div><div class="wcFrameButtonBar" style="min-width: 0px; width: 0px; right: 0px;"></div></div><div class="wcFrameButtonBar" style="min-width: 0px; width: 0px;"><div class="wcFrameButton" title="Close the currently active panel tab" aria-label="Close panel" tabindex="1" style="display: none;"><div class="fa fa-times"></div></div><div class="wcFrameButton" title="Maximize active panel tab" aria-label="Maximize Panel" tabindex="0" style="display: none;"><div class="fa fa-expand-alt"></div></div><div class="wcFrameButton" title="Collapse the active panel" style="display: none;"><div class="fa fa-download"></div>C</div></div><div class="wcFrameCenter wcPanelBackground wcScrollableX wcScrollableY" style="left: 0px; right: 0px; bottom: 0px;"><div class="wcPanelTabContent" id="0"><table class="wcLayout wcWide wcTall"><tbody><tr><td><div class="pg-panel-content"><label for="sql_query_tool" class="sr-only">SQL Editor<textarea id="sql_query_tool" tabindex="-1"></textarea></label><div id="output-panel" tabindex="0"><textarea id="sql_query_tool" tabindex="-1" style="display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-simplescroll" style="font-size: 1em;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 46px; left: 138.414px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="SQL editor" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-simplescroll-horizontal" cm-not-content="true" style="display: none;"><div></div></div><div class="CodeMirror-simplescroll-vertical" cm-not-content="true" style="display: none;"><div></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 42px; margin-bottom: -16px; border-right-width: 34px; min-height: 71px; min-width: 99.4141px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre class="CodeMirror-line-like"><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 96.4141px; top: 42px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">INSERT</span> <span class="cm-keyword">INTO</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">public</span>.</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 34px; width: 1px; border-bottom: 0px solid transparent; top: 71px;"></div><div class="CodeMirror-gutters" style="height: 105px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div></div></div></td></tr></tbody></table></div><div class="wcPanelTabContent wcPanelTabContentHidden" id="1"><table class="wcLayout wcWide wcTall"><tbody><tr><td><div class="pg-panel-content"><div id="history_grid" class="sql-editor-history-container d-flex" tabindex="0"><div style="width: calc(50% - 0.5px);"><div class="toggle-and-history-container">
+            <div class="query-history-toggle">
+                <label class="control-label" for="generated-queries-toggle">
+                    Show queries generated internally by pgAdmin?
+                </label>
+                <div class="toggle btn btn-success btn-xs quick" data-toggle="toggle" role="button" style="width: 0px; height: 0px;"><input id="generated-queries-toggle" type="checkbox" class="pgadmin-controls" data-style="quick" data-size="mini" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="ternary" checked=""><div class="toggle-group"><label for="generated-queries-toggle" class="btn btn-success btn-xs toggle-on">Yes</label><label for="generated-queries-toggle" class="btn btn-ternary btn-xs toggle-off">No</label><span class="toggle-handle btn btn-light btn-xs"></span></div></div>
+            </div>
+            <div id="query_list" class="query-history" tabindex="0"><div class="query-group" data-key="2022 04 30">
+            <div class="date-label">Today - 4/30/2022</div>
+            <ul class="query-entries"><li class="list-item selected" tabindex="0" data-key="01:19:40">
+          <div class="entry ">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+INSERT INTO
+	public.user
+VALUES
+--	(gen_random_uuid(), 12345678, 'Santos', 'Mario', 'Cucha Cucha 1234'),
+	(gen_random_uuid(), 22345678, 'Medina', 'Gabriel', 'El Cairo 1234'),
+	(gen_random_uuid(), 32345678, 'Lamponne', 'Pablo', 'Agacha Al 800'),
+	(gen_random_uuid(), 42345678, 'Ravenna', 'Emilio', 'La dieta milagrosa 3200'),
+	(gen_random_uuid(), 52345678, 'Szifron', 'Damian', 'Ramos me guia 438');
+              </div>
+              <div class="other-info">
+              <div class="timestamp">01:19:40</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="01:15:54">
+          <div class="entry ">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+INSERT INTO
+	public.user
+VALUES
+	(gen_random_uuid(), 12345678, 'Santos', 'Mario', 'Cucha Cucha 1234');
+	
+              </div>
+              <div class="other-info">
+              <div class="timestamp">01:15:54</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="01:15:39">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document DECIMAL(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+
+INSERT INTO
+	public.user
+VALUES
+	(gen_random_uuid(), 12345678, 'Santos', 'Mario', 'Cucha Cucha 1234');
+	
+              </div>
+              <div class="other-info">
+              <div class="timestamp">01:15:39</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="00:55:53">
+          <div class="entry ">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+INSERT INTO public.tracking_device
+VALUES
+	('221c1faa-4c36-4711-8671-05958e617067'),
+	('18632e53-6020-4ca9-901b-d7cf81e0c815'),
+	('b8a9b1ca-c196-46d7-b95d-61038fff836a'),
+	('eede48ad-39a6-42dc-b697-56a57a01b675'),
+	('839f24a4-eafc-4a2a-86c9-7e8ce3ab46d5'),
+	('6208af61-2940-43ce-ae95-4579d32d211a'),
+	('9dceaf20-dcbf-4622-bb2e-d28457394b8c'),
+	('0892bd1f-77f4-46fd-b6d4-b6ca3c047374'),
+	('c86d5796-9d99-457b-8310-1f703c7f1eae'),
+	('3fec05fe-7d30-4b55-b0e1-0314f7e267ad');
+              </div>
+              <div class="other-info">
+              <div class="timestamp">00:55:53</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="00:55:44">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+INSERT INTO public.tracking_device
+VALUES
+	('221c1faa-4c36-4711-8671-05958e617066'),
+	('18632e53-6020-4ca9-901b-d7cf81e0c815'),
+	('b8a9b1ca-c196-46d7-b95d-61038fff836a'),
+	('eede48ad-39a6-42dc-b697-56a57a01b675'),
+	('839f24a4-eafc-4a2a-86c9-7e8ce3ab46d5'),
+	('6208af61-2940-43ce-ae95-4579d32d211a'),
+	('9dceaf20-dcbf-4622-bb2e-d28457394b8c'),
+	('0892bd1f-77f4-46fd-b6d4-b6ca3c047374'),
+	('c86d5796-9d99-457b-8310-1f703c7f1eae'),
+	('3fec05fe-7d30-4b55-b0e1-0314f7e267ad');
+              </div>
+              <div class="other-info">
+              <div class="timestamp">00:55:44</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="00:43:02">
+          <div class="entry ">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+INSERT INTO public.tracking_device
+VALUES
+	('221c1faa-4c36-4711-8671-05958e617066');
+
+              </div>
+              <div class="other-info">
+              <div class="timestamp">00:43:02</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="00:42:48">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+INSERT INTO public.device
+VALUES
+	('221c1faa-4c36-4711-8671-05958e617066');
+
+              </div>
+              <div class="other-info">
+              <div class="timestamp">00:42:48</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="00:21:36">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+INSERT INTO public.device
+VALUES
+	'221c1faa-4c36-4711-8671-05958e617066',
+	'18632e53-6020-4ca9-901b-d7cf81e0c815',
+	'b8a9b1ca-c196-46d7-b95d-61038fff836a',
+	'eede48ad-39a6-42dc-b697-56a57a01b675',
+	'839f24a4-eafc-4a2a-86c9-7e8ce3ab46d5',
+	'6208af61-2940-43ce-ae95-4579d32d211a',
+	'9dceaf20-dcbf-4622-bb2e-d28457394b8c',
+	'0892bd1f-77f4-46fd-b6d4-b6ca3c047374',
+	'c86d5796-9d99-457b-8310-1f703c7f1eae',
+	'3fec05fe-7d30-4b55-b0e1-0314f7e267ad';
+              </div>
+              <div class="other-info">
+              <div class="timestamp">00:21:36</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="00:21:12">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+INSERT INTO public.device
+VALUES
+	'17c8b140-b0fd-4c58-a0ef-bd0a383fcb23',
+	'221c1faa-4c36-4711-8671-05958e617066',
+	'18632e53-6020-4ca9-901b-d7cf81e0c815',
+	'b8a9b1ca-c196-46d7-b95d-61038fff836a',
+	'eede48ad-39a6-42dc-b697-56a57a01b675',
+	'839f24a4-eafc-4a2a-86c9-7e8ce3ab46d5',
+	'6208af61-2940-43ce-ae95-4579d32d211a',
+	'9dceaf20-dcbf-4622-bb2e-d28457394b8c',
+	'0892bd1f-77f4-46fd-b6d4-b6ca3c047374',
+	'c86d5796-9d99-457b-8310-1f703c7f1eae';
+              </div>
+              <div class="other-info">
+              <div class="timestamp">00:21:12</div>
+              </div>
+          </div>
+      </li></ul>
+        </div><div class="query-group" data-key="2022 04 29">
+            <div class="date-label">Yesterday - 4/29/2022</div>
+            <ul class="query-entries"><li class="list-item" tabindex="0" data-key="23:53:59">
+          <div class="entry ">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+-- user
+CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document DECIMAL(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY public.user
+ADD CONSTRAINT user_pkey 
+PRIMARY KEY (id);
+
+
+-- tracking_device
+CREATE TABLE public.tracking_device (
+	id uuid DEFAULT gen_random_uuid() NOT NULL
+);
+
+ALTER TABLE ONLY public.tracking_device
+ADD CONSTRAINT tracking_device_pkey 
+PRIMARY KEY (id);
+
+
+-- measurement
+CREATE TABLE measurement (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	timestamp TIMESTAMP DEFAULT now() NOT NULL,
+	lat NUMERIC (10,6),
+	lng NUMERIC (10,6)
+);
+
+ALTER TABLE ONLY public.measurement
+ADD CONSTRAINT measurement_pkey 
+PRIMARY KEY (id);
+
+
+-- user_tracking_device
+CREATE TABLE user_tracking_device (
+	user_id uuid NOT NULL,
+	device_id uuid NOT NULL
+);
+
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT user_tracking_device_pkey 
+PRIMARY KEY (user_id, device_id);
+
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT user_fkey 
+FOREIGN KEY (user_id)
+REFERENCES public.user(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+	
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT device_fkey 
+FOREIGN KEY (device_id)
+REFERENCES public.tracking_device(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+	
+
+-- tracking_device_measurement
+CREATE TABLE tracking_device_measurement (
+	device_id uuid NOT NULL,
+	measurement_id uuid NOT NULL
+);
+
+ALTER TABLE public.tracking_device_measurement
+ADD CONSTRAINT tdm_pkey 
+PRIMARY KEY (device_id, measurement_id);
+
+ALTER TABLE public.tracking_device_measurement
+ADD CONSTRAINT tdm_device_fkey 
+FOREIGN KEY (device_id)
+REFERENCES public.tracking_device(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+ALTER TABLE  public.tracking_device_measurement
+ADD CONSTRAINT tdm_measurement_fkey 
+FOREIGN KEY (measurement_id)
+REFERENCES public.measurement(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+
+              </div>
+              <div class="other-info">
+              <div class="timestamp">23:53:59</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="23:53:35">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+-- user
+CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document DECIMAL(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY public.user
+ADD CONSTRAINT user_pkey 
+PRIMARY KEY (id);
+
+
+-- tracking_device
+CREATE TABLE public.tracking_device (
+	id uuid DEFAULT gen_random_uuid() NOT NULL
+);
+
+ALTER TABLE ONLY public.tracking_device
+ADD CONSTRAINT tracking_device_pkey 
+PRIMARY KEY (id);
+
+
+-- measurement
+CREATE TABLE measurement (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	timestamp TIMESTAMP DEFAULT now() NOT NULL,
+	lat NUMERIC (10,6),
+	lng NUMERIC (10,6)
+);
+
+ALTER TABLE ONLY public.measurement
+ADD CONSTRAINT measurement_pkey 
+PRIMARY KEY (id);
+
+
+-- user_tracking_device
+CREATE TABLE user_tracking_device (
+	user_id uuid NOT NULL,
+	device_id uuid NOT NULL
+);
+
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT user_tracking_device_pkey 
+PRIMARY KEY (user_id, device_id);
+
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT user_fkey 
+FOREIGN KEY (user_id)
+REFERENCES public.user(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+	
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT device_fkey 
+FOREIGN KEY (device_id)
+REFERENCES public.device(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+	
+
+-- tracking_device_measurement
+CREATE TABLE tracking_device_measurement (
+	device_id uuid NOT NULL,
+	measurement_id uuid NOT NULL
+);
+
+ALTER TABLE public.tracking_device_measurement
+ADD CONSTRAINT tdm_pkey 
+PRIMARY KEY (device_id, measurement_id);
+
+ALTER TABLE public.tracking_device_measurement
+ADD CONSTRAINT tdm_device_fkey 
+FOREIGN KEY (device_id)
+REFERENCES public.tracking_device(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+ALTER TABLE  public.tracking_device_measurement
+ADD CONSTRAINT tdm_measurement_fkey 
+FOREIGN KEY (measurement_id)
+REFERENCES public.measurement(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+
+              </div>
+              <div class="other-info">
+              <div class="timestamp">23:53:35</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="23:51:53">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+-- user
+CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document DECIMAL(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY public.user
+ADD CONSTRAINT user_pkey 
+PRIMARY KEY (id);
+
+
+-- tracking_device
+CREATE TABLE public.tracking_device (
+	id uuid DEFAULT gen_random_uuid() NOT NULL
+);
+
+ALTER TABLE ONLY public.tracking_device
+ADD CONSTRAINT tracking_device_pkey 
+PRIMARY KEY (id);
+
+
+-- measurement
+CREATE TABLE measurement (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	timestamp TIMESTAMP DEFAULT now() NOT NULL,
+	lat NUMERIC (10,6),
+	lng NUMERIC (10,6)
+);
+
+ALTER TABLE ONLY public.measurement
+ADD CONSTRAINT measurement_pkey 
+PRIMARY KEY (id);
+
+
+-- user_tracking_device
+CREATE TABLE user_tracking_device (
+	user_id uuid NOT NULL,
+	device_id uuid NOT NULL
+);
+
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT user_tracking_device_pkey 
+PRIMARY KEY (user_id, device_id);
+
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT user_fkey 
+FOREIGN KEY (user_id)
+REFERENCES public.user(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+	
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT device_fkey 
+FOREIGN KEY (device_id)
+REFERENCES public.device(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+	
+
+-- tracking_device_measurement
+CREATE TABLE tracking_device_measurement (
+	device_id uuid NOT NULL,
+	measurement_id uuid NOT NULL
+);
+
+ALTER TABLE public.tracking_device_measurement
+ADD CONSTRAINT tdm_pkey 
+PRIMARY KEY (device_id, measurement_id);
+
+ALTER TABLE public.tracking_device_measurement
+ADD CONSTRAINT tdm_device_fkey 
+FOREIGN KEY (device_id)
+REFERENCES public.device(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+ALTER TABLE  public.tracking_device_measurement
+ADD CONSTRAINT tdm_measurement_fkey 
+FOREIGN KEY (measurement_id)
+REFERENCES public.measurement(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+
+              </div>
+              <div class="other-info">
+              <div class="timestamp">23:51:53</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="23:51:46">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+-- user
+CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document DECIMAL(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY public.user
+ADD CONSTRAINT user_pkey 
+PRIMARY KEY (id);
+
+
+-- tracking_device
+CREATE TABLE public.tracking_device (
+	id uuid DEFAULT gen_random_uuid() NOT NULL
+);
+
+ALTER TABLE ONLY public.tracking_device
+ADD CONSTRAINT tracking_device_pkey 
+PRIMARY KEY (id);
+
+
+-- measurement
+CREATE TABLE measurement (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	timestamp TIMESTAMP DEFAULT now() NOT NULL,
+	lat NUMERIC (10,6),
+	lng NUMERIC (10,6)
+);
+
+ALTER TABLE ONLY public.measurement
+ADD CONSTRAINT measurement_pkey 
+PRIMARY KEY (id);
+
+
+-- user_tracking_device
+CREATE TABLE user_tracking_device (
+	user_id uuid NOT NULL,
+	device_id uuid NOT NULL
+);
+
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT user_tracking_device_pkey 
+PRIMARY KEY (user_id, device_id);
+
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT user_fkey 
+FOREIGN KEY (user_id)
+REFERENCES public.user(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+	
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT device_fkey 
+FOREIGN KEY (device_id)
+REFERENCES public.device(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+	
+
+-- tracking_device_measurement
+CREATE TABLE tracking_device_measurement (
+	device_id uuid NOT NULL,
+	measurement_id uuid NOT NULL,
+);
+
+ALTER TABLE public.tracking_device_measurement
+ADD CONSTRAINT tdm_pkey 
+PRIMARY KEY (device_id, measurement_id);
+
+ALTER TABLE public.tracking_device_measurement
+ADD CONSTRAINT tdm_device_fkey 
+FOREIGN KEY (device_id)
+REFERENCES public.device(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+ALTER TABLE  public.tracking_device_measurement
+ADD CONSTRAINT tdm_measurement_fkey 
+FOREIGN KEY (measurement_id)
+REFERENCES public.measurement(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+
+              </div>
+              <div class="other-info">
+              <div class="timestamp">23:51:46</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="23:42:03">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+-- user
+CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document DECIMAL(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY 
+	public.user
+ADD CONSTRAINT
+	user_pkey PRIMARY KEY (id);
+
+-- tracking_device
+CREATE TABLE public.tracking_device (
+	id uuid DEFAULT gen_random_uuid() NOT NULL
+);
+
+ALTER TABLE ONLY 
+	public.tracking_device
+ADD CONSTRAINT
+	tracking_device_pkey PRIMARY KEY (id);
+	
+-- measurement
+CREATE TABLE measurement (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	timestamp TIMESTAMP DEFAULT now() NOT NULL,
+	lat NUMERIC (10,6),
+	lng NUMERIC (10,6)
+);
+
+ALTER TABLE ONLY 
+	public.measurement
+ADD CONSTRAINT
+	measurement_pkey PRIMARY KEY (id);
+	
+-- user_tracking_device
+CREATE TABLE user_tracking_device (
+	user_id uuid NOT NULL,
+	device_id uuid NOT NULL
+);
+
+-- user_tracking_device
+ALTER TABLE ONLY
+	public.user_tracking_device
+ADD CONSTRAINT
+	user_tracking_device_pkey PRIMARY KEY (user_id, device_id);
+
+ALTER TABLE ONLY public.user_tracking_device
+ADD CONSTRAINT user_fkey 
+FOREIGN KEY (user_id)
+REFERENCES public.user(id)
+ON UPDATE RESTRICT ON DELETE RESTRICT;
+	
+ALTER TABLE ONLY
+	public.user_tracking_device
+ADD CONSTRAINT
+	device_fkey FOREIGN KEY (device_id);
+	
+	
+-- tracking_device_measurement
+CREATE TABLE tracking_device_measurement (
+	device_id uuid NOT NULL,
+	measurement_id uuid NOT NULL,
+);
+
+ALTER TABLE 
+	public.tracking_device_measurement
+ADD CONSTRAINT
+	tdm_pkey PRIMARY KEY (device_id, measurement_id);
+	
+ALTER TABLE 
+	public.tracking_device_measurement
+ADD CONSTRAINT
+	tdm_device_fkey PRIMARY KEY (device_id);
+
+ALTER TABLE 
+	public.tracking_device_measurement
+ADD CONSTRAINT
+	tdm_measurement_fkey PRIMARY KEY (measurement_id);
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </div>
+              <div class="other-info">
+              <div class="timestamp">23:42:03</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="23:37:40">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+-- user
+CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document DECIMAL(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY 
+	public.user
+ADD CONSTRAINT
+	user_pkey PRIMARY KEY (id);
+
+-- tracking_device
+CREATE TABLE public.tracking_device (
+	id uuid DEFAULT gen_random_uuid() NOT NULL
+);
+
+ALTER TABLE ONLY 
+	public.tracking_device
+ADD CONSTRAINT
+	tracking_device_pkey PRIMARY KEY (id);
+	
+-- measurement
+CREATE TABLE measurement (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	timestamp TIMESTAMP DEFAULT now() NOT NULL,
+	lat NUMERIC (10,6),
+	lng NUMERIC (10,6)
+);
+
+ALTER TABLE ONLY 
+	public.measurement
+ADD CONSTRAINT
+	measurement_pkey PRIMARY KEY (id);
+	
+-- user_tracking_device
+CREATE TABLE user_tracking_device (
+	user_id uuid NOT NULL,
+	device_id uuid NOT NULL
+);
+
+-- user_tracking_device
+ALTER TABLE ONLY
+	public.user_tracking_device
+ADD CONSTRAINT
+	user_tracking_device_pkey PRIMARY KEY (user_id, device_id);
+	
+ALTER TABLE ONLY
+	public.user_tracking_device
+ADD CONSTRAINT
+	user_fkey FOREIGN KEY (user_id);
+	
+ALTER TABLE ONLY
+	public.user_tracking_device
+ADD CONSTRAINT
+	device_fkey FOREIGN KEY (device_id);
+	
+	
+-- tracking_device_measurement
+CREATE TABLE tracking_device_measurement (
+	device_id uuid NOT NULL,
+	measurement_id uuid NOT NULL,
+);
+
+ALTER TABLE 
+	public.tracking_device_measurement
+ADD CONSTRAINT
+	tdm_pkey PRIMARY KEY (device_id, measurement_id);
+	
+ALTER TABLE 
+	public.tracking_device_measurement
+ADD CONSTRAINT
+	tdm_device_fkey PRIMARY KEY (device_id);
+
+ALTER TABLE 
+	public.tracking_device_measurement
+ADD CONSTRAINT
+	tdm_measurement_fkey PRIMARY KEY (measurement_id);
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </div>
+              <div class="other-info">
+              <div class="timestamp">23:37:40</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="23:35:02">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  
+-- user
+CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document DECIMAL(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY 
+	public.user
+ADD CONSTRAINT
+	user_pkey PRIMARY KEY (id);
+
+-- tracking_device
+CREATE TABLE public.tracking_device (
+	id uuid DEFAULT gen_random_uuid() NOT NULL
+);
+
+ALTER TABLE ONLY 
+	public.tracking_device
+ADD CONSTRAINT
+	tracking_device_pkey PRIMARY KEY (id);
+	
+-- measurement
+CREATE TABLE measurement (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	timestamp TIMESTAMP DEFAULT now() NOT NULL,
+	lat FLOAT(10,6),
+	lng FLOAT(10,6)
+);
+
+ALTER TABLE ONLY 
+	public.measurement
+ADD CONSTRAINT
+	measurement_pkey PRIMARY KEY (id);
+	
+-- user_tracking_device
+CREATE TABLE user_tracking_device (
+	user_id uuid NOT NULL,
+	device_id uuid NOT NULL
+);
+
+-- user_tracking_device
+ALTER TABLE ONLY
+	public.user_tracking_device
+ADD CONSTRAINT
+	user_tracking_device_pkey PRIMARY KEY (user_id, device_id);
+	
+ALTER TABLE ONLY
+	public.user_tracking_device
+ADD CONSTRAINT
+	user_fkey FOREIGN KEY (user_id);
+	
+ALTER TABLE ONLY
+	public.user_tracking_device
+ADD CONSTRAINT
+	device_fkey FOREIGN KEY (device_id);
+	
+	
+-- tracking_device_measurement
+CREATE TABLE tracking_device_measurement (
+	device_id uuid NOT NULL,
+	measurement_id uuid NOT NULL,
+);
+
+ALTER TABLE 
+	public.tracking_device_measurement
+ADD CONSTRAINT
+	tdm_pkey PRIMARY KEY (device_id, measurement_id);
+	
+ALTER TABLE 
+	public.tracking_device_measurement
+ADD CONSTRAINT
+	tdm_device_fkey PRIMARY KEY (device_id);
+
+ALTER TABLE 
+	public.tracking_device_measurement
+ADD CONSTRAINT
+	tdm_measurement_fkey PRIMARY KEY (measurement_id);
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </div>
+              <div class="other-info">
+              <div class="timestamp">23:35:02</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="22:56:23">
+          <div class="entry ">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document DECIMAL(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY 
+	public.user
+ADD CONSTRAINT
+	user_pkey PRIMARY KEY (id);
+              </div>
+              <div class="other-info">
+              <div class="timestamp">22:56:23</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="22:52:40">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document INT(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY 
+	public.user
+ADD CONSTRAINT
+	user_pkey PRIMARY KEY (id);
+              </div>
+              <div class="other-info">
+              <div class="timestamp">22:52:40</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="22:52:25">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  CREATE TABLE public.user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document INTEGER(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY 
+	public.user
+ADD CONSTRAINT
+	user_pkey PRIMARY KEY (id);
+              </div>
+              <div class="other-info">
+              <div class="timestamp">22:52:25</div>
+              </div>
+          </div>
+      </li><li class="list-item" tabindex="0" data-key="22:52:11">
+          <div class="entry error">
+              <div class="query">
+                  <span id="query_source_icon" class="query-history-icon sql-icon-lg fa fa-play" role="img"></span>
+                  CREATE TABLE user (
+	id uuid DEFAULT gen_random_uuid() NOT NULL,
+	document INTEGER(9),
+	lastname VARCHAR(20),
+	firstname VARCHAR(60),
+	address VARCHAR(60)
+);
+
+ALTER TABLE ONLY 
+	public.user
+ADD CONSTRAINT
+	user_pkey PRIMARY KEY (id);
+              </div>
+              <div class="other-info">
+              <div class="timestamp">22:52:11</div>
+              </div>
+          </div>
+      </li></ul>
+        </div></div>
+        </div></div><div class="gutter gutter-horizontal" style="width: 1px;"></div><div style="width: calc(50% - 0.5px); overflow: auto;"><div id="query_detail" class="query-detail">
+            <div class="error-message-block d-none"></div>
+            <div class="info-message-block d-none"></div>
+            <div class="metadata-block"><div class="metadata"><div class="item">
+                  <span class="value">4/30/2022 1:19:40 AM</span>
+                  <span class="description">Date</span>
+              </div><div class="item">
+                  <span class="value">4</span>
+                  <span class="description">Rows Affected</span>
+              </div><div class="item">
+                  <span class="value">93 msec</span>
+                  <span class="description">Duration</span>
+              </div></div></div>
+            <div class="query-statement-block">
+              <div id="history-detail-query">
+                <button class="btn-copy copy-all" tabindex="0" accesskey="y">Copy</button>
+                <button class="btn-copy-editor copy-to-editor" tabindex="0" accesskey="y">Copy to Query Editor</button>
+                <div><div class="CodeMirror cm-s-default" style="font-size: 1em;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" readonly="" tabindex="-1" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="display: block; bottom: 0px;"><div style="min-width: 1px; height: 59px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true" style="display: block; right: 0px; left: 0px;"><div style="height: 100%; min-height: 1px; width: 53px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-width: 3px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"><pre class="CodeMirror-line" role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 50px; width: 1px; border-bottom: 0px solid transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></div>
+              </div>
+            </div>
+            <div>
+              <hr class="block-divider">
+            </div>
+            <div class="message-block">
+              <div class="message">
+                <div class="message-header">Messages</div>
+                <div class="content"><pre class="content-value">INSERT 0 4
+
+Query returned successfully in 93 msec.</pre></div>
+              </div>
+            </div>
+        </div></div></div></div></td></tr></tbody></table></div></div></div></div><div class="wcLayoutPane" style="bottom: 0px; height: 232.569px; left: 0px; right: 0px;"><div class="wcFrame wcWide wcTall"><div class="wcFrameTitleBar wcTabTop" style="width: 1138.5px;"><div class="wcTabScroller" style="left: 0px;"><div class="wcPanelTab" id="0"><div><a href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="-1" class="panel-link-heading">Data Output</a></div></div><div class="wcPanelTab" id="1"><div><a href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="-1" class="panel-link-heading">Explain</a></div></div><div class="wcPanelTab wcPanelTabActive" id="2"><div><a href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="-1" class="panel-link-heading">Messages</a></div></div><div class="wcPanelTab" id="3"><div><a href="http://localhost/datagrid/panel/5120052?is_query_tool=true&amp;sgid=1&amp;sid=1&amp;server_type=pg&amp;did=13445#" tabindex="-1" class="panel-link-heading">Notifications</a></div></div></div><div class="wcFrameButtonBar" style="min-width: 0px; width: 0px; right: 0px;"></div></div><div class="wcFrameButtonBar" style="min-width: 0px; width: 0px;"><div class="wcFrameButton" title="Close the currently active panel tab" aria-label="Close panel" tabindex="1" style="display: none;"><div class="fa fa-times"></div></div><div class="wcFrameButton" title="Maximize active panel tab" aria-label="Maximize Panel" tabindex="0" style="display: none;"><div class="fa fa-expand-alt"></div></div><div class="wcFrameButton" title="Collapse the active panel" style="display: none;"><div class="fa fa-download"></div>C</div></div><div class="wcFrameCenter wcPanelBackground wcScrollableX wcScrollableY" style="left: 0px; right: 0px; bottom: 0px;"><div class="wcPanelTabContent wcPanelTabContentHidden" id="0"><table class="wcLayout wcWide wcTall"><tbody><tr><td><div class="pg-panel-content hide-vertical-scrollbar"><div class="data-output-container">
+          <div id="fetching_data" class="pg-sp-container sql-editor-busy-fetching d-none">
+              <div class="pg-sp-content">
+                  <div class="row">
+                      <div class="col-12 pg-sp-icon sql-editor-busy-icon"></div>
+                  </div>
+                  <div class="row"><div class="col-12 pg-sp-text sql-editor-busy-text">Loading data from the database server and rendering...</div></div>
+              </div>
+          </div>
+          <div id="datagrid" class="sql-editor-grid-container text-12" tabindex="0"><div role="status" class="pg-panel-message">No data output. Execute a query to get output.</div></div>
+        </div></div></td></tr></tbody></table></div><div class="wcPanelTabContent wcPanelTabContentHidden" id="1"><table class="wcLayout wcWide wcTall"><tbody><tr><td><div class="pg-panel-content"><div class="sql-editor-explain pg-el-container" tabindex="0"><div role="status" class="pg-panel-message">Use Explain/Explain analyze button to generate the plan for a query. Alternatively, you can also execute "EXPLAIN (FORMAT JSON) [QUERY]".</div></div></div></td></tr></tbody></table></div><div class="wcPanelTabContent" id="2"><table class="wcLayout wcWide wcTall"><tbody><tr><td><div class="pg-panel-content"><div role="status" class="sql-editor-message" tabindex="0">INSERT 0 4
+
+Query returned successfully in 93 msec.</div></div></td></tr></tbody></table></div><div class="wcPanelTabContent wcPanelTabContentHidden" id="3"><table class="wcLayout wcWide wcTall"><tbody><tr><td><div class="pg-panel-content"><div id="notification_grid" class="sql-editor-notifications" tabindex="0"><table class="backgrid presentation table table-bordered table-hover table-noouter-border table-bottom-border" role="table"><thead><tr><th class="sortable renderable recorded_time" role="columnheader"><button>Recorded time<span class="sort-caret" aria-hidden="true"></span></button></th><th class="sortable renderable channel" role="columnheader"><button>Event<span class="sort-caret" aria-hidden="true"></span></button></th><th class="sortable renderable pid" role="columnheader"><button>Process ID<span class="sort-caret" aria-hidden="true"></span></button></th><th class="sortable renderable payload" role="columnheader"><button>Payload<span class="sort-caret" aria-hidden="true"></span></button></th></tr></thead><tbody><tr class="empty"><td colspan="4"><span>No data found</span></td></tr></tbody></table></div></div></td></tr></tbody></table></div></div></div></div><div class="wcSplitterBar wcWide wcSplitterBarH" style="top: 614.931px; left: 0px;"><div class="wcSplitterBarLine"></div></div></div></div>
+        <div class="sql-editor-busy-text-status d-none">Loading data from the database server and rendering...</div>
+    </div>
+</div>
+<script type="application/javascript">
+            require(['sources/generated/browser_nodes', 'sources/generated/codemirror', 'sources/generated/slickgrid'], function() {
+    require(['sources/generated/sqleditor'], function(ctx) {
+        var $ = pgAdmin.SqlEditor.jquery,
+            S = pgAdmin.SqlEditor.S,
+            editorPanel = $('.sql-editor');
+
+        // Register unload event on window close.
+        /* If opened in new tab, close the connection only on tab/window close and
+         * not on refresh attempt because the user may cancel the reload
+         */
+        if(window.opener) {
+          $(window).on('unload', function(ev) {
+            $.ajax({
+              method: 'DELETE',
+              url: "/datagrid/" + "close/" + 5120052
+            });
+          });
+        } else {
+          $(window).on('beforeunload', function(ev) {
+            $.ajax({
+              method: 'DELETE',
+              url: "/datagrid/" + "close/" + 5120052
+            });
+          });
+        }
+
+        // Get the controller object from pgAdmin.SqlEditor
+        var sqlEditorController = pgAdmin.SqlEditor.create(editorPanel);
+
+        // Listen on events to show/hide loading-icon and change messages.
+                    var script_type_url = '';
+                // Start the query tool.
+
+        sqlEditorController.start(
+            5120052,
+            {"is_query_tool": "true", "sgid": "1", "sid": "1", "server_type": "pg", "did": "13445", "title": "postgres/root@data-architecture-tracking-rdb"},
+            '{"floating":[],"root":{"type":"wcSplitter","horizontal":false,"isDrawer":false,"pane0":{"type":"wcFrame","floating":false,"isFocus":false,"tabOrientation":"top","pos":{"x":0.5,"y":0.5},"size":{"x":917.73,"y":246.46644000000003},"tab":0,"panels":[{"type":"wcPanel","panelType":"sql_panel","size":{"x":917.73,"y":246.46644000000003},"customData":{}},{"type":"wcPanel","panelType":"history","size":{"x":1223.64,"y":246.46644000000003},"customData":{}}]},"pane1":{"type":"wcFrame","floating":false,"isFocus":false,"tabOrientation":"top","pos":{"x":0.5,"y":0.5},"size":{"x":1223.64,"y":746.868},"tab":2,"panels":[{"type":"wcPanel","panelType":"data_output","size":{"x":1223.64,"y":746.868},"customData":{}},{"type":"wcPanel","panelType":"explain","size":{"x":1223.64,"y":746.868},"customData":{}},{"type":"wcPanel","panelType":"messages","size":{"x":1223.64,"y":746.868},"customData":{}},{"type":"wcPanel","panelType":"notifications","size":{"x":1223.64,"y":746.868},"customData":{}}]},"pos":0.7230223408541618}}',
+            []
+        );
+
+        // If opening from schema diff, set the generated script to the SQL Editor
+
+        var schema_ddl_diff = (window.opener !== null) ? window.opener.pgAdmin.ddl_diff : (window.parent !== null) ? window.parent.pgAdmin.ddl_diff : window.top.pgAdmin.ddl_diff;
+        sqlEditorController.set_value_to_editor(schema_ddl_diff);
+        if (window.opener !== null) window.opener.pgAdmin.ddl_diff = '';
+        else if (window.parent !== null) window.parent.pgAdmin.ddl_diff = '';
+        else if (window.top !== null) window.top.pgAdmin.ddl_diff = '';
+
+    });
+});
+</script>
+
+
+<div class="alertify ajs-hidden  ajs-movable ajs-pinnable ajs-zoom"><div class="ajs-dimmer"></div><div class="ajs-modal" tabindex="0"><div class="ajs-dialog" tabindex="0"><button class="ajs-reset" aria-label="reset"></button><div class="ajs-commands"><button class="ajs-pin" aria-label="Pin"></button><button class="ajs-maximize" aria-label="Maximize" tabindex="0"></button><button class="ajs-close" aria-label="Close"></button></div><div class="ajs-header">AlertifyJS</div><div class="ajs-body"><div class="ajs-content"></div></div><div class="ajs-footer"><div class="ajs-auxiliary ajs-buttons"></div><div class="ajs-primary ajs-buttons"><button class="ajs-button btn btn-secondary fa fa-lg fa-times pg-alertify-button">Cancel</button><button class="ajs-button btn btn-primary fa fa-lg fa-check pg-alertify-button">OK</button></div></div><div class="ajs-handle"></div><button class="ajs-reset" aria-label="reset"></button></div></div></div><div class="alertify ajs-hidden  ajs-movable ajs-pinnable ajs-zoom"><div class="ajs-dimmer"></div><div class="ajs-modal" tabindex="0"><div class="ajs-dialog" tabindex="0"><button class="ajs-reset" aria-label="reset"></button><div class="ajs-commands"><button class="ajs-pin" aria-label="Pin"></button><button class="ajs-maximize" aria-label="Maximize" tabindex="0"></button><button class="ajs-close" aria-label="Close"></button></div><div class="ajs-header">AlertifyJS</div><div class="ajs-body"><div class="ajs-content"><p></p><label for="alertify-prompt-0" style="display: none;">HiddenLabel</label><input class="form-control" type="text" id="alertify-prompt-0"></div></div><div class="ajs-footer"><div class="ajs-auxiliary ajs-buttons"></div><div class="ajs-primary ajs-buttons"><button class="ajs-button btn btn-secondary fa fa-lg fa-times pg-alertify-button">Cancel</button><button class="ajs-button btn btn-primary fa fa-lg fa-check pg-alertify-button">OK</button></div></div><div class="ajs-handle"></div><button class="ajs-reset" aria-label="reset"></button></div></div></div><div class="alertify ajs-hidden  ajs-movable ajs-pinnable ajs-zoom"><div class="ajs-dimmer"></div><div class="ajs-modal" tabindex="0"><div class="ajs-dialog" tabindex="0"><button class="ajs-reset" aria-label="reset"></button><div class="ajs-commands"><button class="ajs-pin" aria-label="Pin"></button><button class="ajs-maximize" aria-label="Maximize" tabindex="0"></button><button class="ajs-close" aria-label="Close"></button></div><div class="ajs-header">AlertifyJS</div><div class="ajs-body"><div class="ajs-content"></div></div><div class="ajs-footer"><div class="ajs-auxiliary ajs-buttons"></div><div class="ajs-primary ajs-buttons"><button class="ajs-button btn btn-primary fa fa-lg fa-check pg-alertify-button">OK</button></div></div><div class="ajs-handle"></div><button class="ajs-reset" aria-label="reset"></button></div></div></div><div class="alertify ajs-hidden  ajs-modeless ajs-movable ajs-resizable ajs-zoom ajs-no-padding ajs-no-overflow"><div class="ajs-dimmer"></div><div class="ajs-modal" tabindex="0"><div class="ajs-dialog" tabindex="0"><button class="ajs-reset" aria-label="reset"></button><div class="ajs-commands"><button class="ajs-pin" aria-label="Pin"></button><button class="ajs-maximize" aria-label="Maximize" tabindex="0"></button><button class="ajs-close" aria-label="Close"></button></div><div class="ajs-header">AlertifyJS</div><div class="ajs-body"><div class="ajs-content"><div class="storage_dialog file_selection_dlg"></div></div></div><div class="ajs-footer"><div class="ajs-auxiliary ajs-buttons"></div><div class="ajs-primary ajs-buttons"><button class="ajs-button btn btn-secondary fa fa-times pg-alertify-button">Cancel</button><button class="ajs-button btn btn-primary fa fa-file file_manager_ok pg-alertify-button disabled">Select</button></div></div><div class="ajs-handle"></div><button class="ajs-reset" aria-label="reset"></button></div></div></div><div class="alertify ajs-hidden  ajs-modeless ajs-movable ajs-resizable ajs-zoom ajs-no-padding ajs-no-overflow"><div class="ajs-dimmer"></div><div class="ajs-modal" tabindex="0"><div class="ajs-dialog" tabindex="0"><button class="ajs-reset" aria-label="reset"></button><div class="ajs-commands"><button class="ajs-pin" aria-label="Pin"></button><button class="ajs-maximize" aria-label="Maximize" tabindex="0"></button><button class="ajs-close" aria-label="Close"></button></div><div class="ajs-header">AlertifyJS</div><div class="ajs-body"><div class="ajs-content"><div class="storage_dialog file_selection_dlg"></div></div></div><div class="ajs-footer"><div class="ajs-auxiliary ajs-buttons"></div><div class="ajs-primary ajs-buttons"><button class="ajs-button btn btn-secondary fa fa-times file_manager_create_cancel pg-alertify-button">Cancel</button><button class="ajs-button btn btn-primary fa fa-file file_manager_create file_manager_ok pg-alertify-button disabled">Create</button></div></div><div class="ajs-handle"></div><button class="ajs-reset" aria-label="reset"></button></div></div></div></body></html>
